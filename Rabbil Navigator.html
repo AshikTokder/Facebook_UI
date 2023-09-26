@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video id="ashikCamera" autoplay="true"></video>
+    <scrip>
+        var video = document.getElementById('ashikCamera');
+
+        if(navigator.mediaDevices.getUserMedia){
+            navigator.mediaDevices.getUserMedia({
+                video:true,
+                audio:true
+            })
+
+            .then(e=>{
+                video.srcObject = e;
+            })
+            .catch(error=>{
+                console.log("error")
+            })
+
+            // .then(function(e){
+            //     video.srcObject = e;
+            // })
+            // // .catch(function(error){
+            // //     console.log("error")
+            // // })
+        }
+    </script>
+</body>
+</html>

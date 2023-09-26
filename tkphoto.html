@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+
+    <video id="vdo" autoplay="true"></video>
+    <canvas id="cnvs" width="500" height="500"></canvas><br>
+    <button id="tkp">Take Photo</button>
+    
+    <script>
+        var video = document.getElementById('vdo');
+        var camera = navigator.mediaDevices.getUserMedia();
+
+        // if(cnavigator.mediaDevices.getUserMedia()){
+        //     navigator.mediaDevices.getUserMedia({
+        //         video:true,
+        //         audio:true
+        //     })
+
+        if(camera){
+            navigator.mediaDevices.getUserMedia({
+                video:true,
+                audio:true
+            })
+
+            .then(function(streamLive){
+                video.srcObject=streamLive;
+            })
+            .catch(function(error){
+                console.log("error")
+            })
+        }
+        var canvas = document.getElementById('cnvs');
+        var tkp = document.getElementById('tkp');
+        var context = canvas.getContext('2d');
+        
+        tkp.addEventListener('click',function(){
+            context.drawImage(video,0,0,700,700);
+        })
+    </script>
+</body>
+</html>

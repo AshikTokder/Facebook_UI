@@ -1,0 +1,14 @@
+#vdo{
+    width: 600px;
+    height: 600px;
+    background-color:skyblue ;
+}
+#cnvs{
+    background-color: blueviolet;
+}
+#tkp{
+    background-color: blueviolet;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 10px red;
+}
